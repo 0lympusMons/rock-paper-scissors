@@ -50,3 +50,8 @@ function myFunction(value) {
     text += "<li>" + value + "</li>";
 }
 
+// Similar to for each in Java: for (variable : array)
+for (const iterator of object) {
+    
+}
+
