@@ -53,10 +53,10 @@ function game() {
 
 
         const playerSelection = prompt("Enter your choice: ");
-        const computerSelection = getComputerChoice();
+        // const computerSelection = getComputerChoice();
 
-        // console.log(compareChoices(playerSelection, getComputerChoice()));
-        console.log(compareChoices(playerSelection, computerSelection));
+        console.log(compareChoices(playerSelection, getComputerChoice()));
+        // console.log(compareChoices(playerSelection, computerSelection));
 
 
     }
