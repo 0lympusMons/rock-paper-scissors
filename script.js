@@ -15,12 +15,15 @@ function compareChoices(playerSelection, computerSelection) {
     // player wins
 
     if (playerSelection === "rock" && computerSelection === "scissors") {
+        userScore++;
         return `You Win! ${playerSelection} beats ${computerSelection}`;
 
     } else if (playerSelection === "paper" && computerSelection === "rock") {
+        userScore++;
         return `You Win! ${playerSelection} beats ${computerSelection}`;
 
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
+        userScore++;
         return `You Win! ${playerSelection} beats ${computerSelection}`;
 
     }
@@ -28,12 +31,15 @@ function compareChoices(playerSelection, computerSelection) {
     // player loses
 
     else if (playerSelection === "scissors" && computerSelection === "rock") {
+        ++computerScore;
         return `You Lose! ${computerSelection} beats ${playerSelection}`;
 
     } else if (playerSelection === "rock" && computerSelection === "paper") {
+        ++computerScore;
         return `You Lose! ${computerSelection} beats ${playerSelection}`;
 
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
+        ++computerScore;
         return `You Lose! ${computerSelection} beats ${playerSelection}`;
 
     }
@@ -46,21 +52,72 @@ function compareChoices(playerSelection, computerSelection) {
 
 }
 
-function game() {
-    console.log("Started.")
+var numOfTries = 0;
+let userScore = 0;
+let computerScore = 0;
 
-    for (let i = 0; i < 5; i++) {
-
-
-        const playerSelection = prompt("Enter your choice: ");
-        // const computerSelection = getComputerChoice();
-
-        console.log(compareChoices(playerSelection, getComputerChoice()));
-        // console.log(compareChoices(playerSelection, computerSelection));
+function game(e) {
 
 
+    if (numOfTries == 5) {
+        return console.warn('Add Restart Button');
     }
 
+
+    const playerSelection = this.className;
+
+
+    result.textContent = compareChoices(playerSelection, getComputerChoice());
+
+    numOfTries = numOfTries + 1;
+
+    //updates score and tries counter
+    scoreCounter.textContent = userScore;
+    triesCounter.textContent = numOfTries;
+
+    if (numOfTries == 5) {
+        console.log("Game Over");
+
+        if (userScore > computerScore) {
+
+            result.textContent = `You win!
+            Your score: ${userScore}
+            Your opponent's score: ${computerScore}`;
+
+        } else {
+
+            result.textContent = `You Lose! Your score: ${userScore}, your opponent's score: ${computerScore}.`;
+        }
+    }
 }
 
-game();
+function resetGame() {
+    numOfTries = 0;
+    userScore = 0;
+    computerScore = 0;
+
+    scoreCounter.textContent = 0;
+    triesCounter.textContent = 0;
+
+    result.textContent = null;
+}
+
+//gets nodelist of buttons
+const buttons = document.querySelectorAll('button');
+//adds click event listener of each nodes in the buttons nodelist
+buttons.forEach(button => button.addEventListener('click', game));
+
+var result = document.querySelector('.result');
+
+const reset = document.querySelector('.reset');
+reset.addEventListener('click', resetGame);
+
+let scoreCounter = document.querySelector('.score__counter');
+let triesCounter = document.querySelector('.tries__counter');
+
+//updates score and tries counter
+scoreCounter.textContent = userScore;
+triesCounter.textContent = numOfTries;
+
+
+
