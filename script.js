@@ -121,3 +121,4 @@ triesCounter.textContent = numOfTries;
 
 
 
+// shesh
