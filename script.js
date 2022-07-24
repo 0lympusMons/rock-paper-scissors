@@ -71,9 +71,12 @@ function game(e) {
 
     numOfTries = numOfTries + 1;
 
-    //updates score and tries counter
+    //updates scores and tries counter
     scoreCounter.textContent = userScore;
     triesCounter.textContent = numOfTries;
+    playerScore.textContent = userScore;
+    computerScoreHTML.textContent = computerScore;
+
 
     if (numOfTries == 5) {
         console.log("Game Over");
@@ -96,8 +99,11 @@ function resetGame() {
     userScore = 0;
     computerScore = 0;
 
+    //resets scores and counters
     scoreCounter.textContent = 0;
     triesCounter.textContent = 0;
+    playerScore.textContent = 0;
+    computerScoreHTML.textContent = 0;
 
     result.textContent = null;
 }
@@ -114,11 +120,12 @@ reset.addEventListener('click', resetGame);
 
 let scoreCounter = document.querySelector('.score__counter');
 let triesCounter = document.querySelector('.tries__counter');
+let playerScore = document.querySelector('.player-side__score');
+let computerScoreHTML = document.querySelector('.computer-side__score');
+
 
 //updates score and tries counter
 scoreCounter.textContent = userScore;
 triesCounter.textContent = numOfTries;
 
 
-
-// shesh

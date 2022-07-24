@@ -12,23 +12,39 @@
 
 <body>
 
-    <div class="score">
-        Score: <span class="score__counter"></span>
-        <br>Tries: <span class="tries__counter"></span>
+    <div class="player-side">
+        <!-- Use 'username' to change placeholder -->
+        <h1 class="username">player name</h1>
+        <h1 class="player-side__score">0</h1>
     </div>
 
-    <div class="button__wrapper">
-        <button class="rock">rock</button>
-        <button class="paper">paper</button>
-        <button class="scissors">scissors</button>
+    <div class="body">
+        <div class="score">
+            Score: <span class="score__counter"></span>
+            <br>Tries: <span class="tries__counter"></span>
+        </div>
+    
+        <div class="button__wrapper">
+            <button class="rock">rock</button>
+            <button class="paper">paper</button>
+            <button class="scissors">scissors</button>
+        </div>
+    
+    
+        <div class="result">
+        </div>
+    
+        <div class="reset__wrapper">
+            <button class="reset">Reset</button>
+    
+        </div>
     </div>
 
+    
 
-    <div class="result">
-    </div>
-
-    <div class="reset__wrapper">
-        <button class="reset">Reset</button>
+    <div class="computer-side">
+        <h1>Computer</h1>
+        <h1 class="computer-side__score">0</h1>
 
     </div>
 
